@@ -53,27 +53,29 @@ $('body').click(function(){
 
 ### Callback Function Signature & Composition
 
+> [function diagram](https://superbuggy.github.io/js-tooltips/)
+
 Array methods like `.map`, `.sort`, and `.reduce` each take callback functions that have unique **function signature**.
 
 #### Map
 
 [.map(*callback*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
-> function (currentValue, index, array)
+`function (currentValue, index, array)`
 > this function acts upon each item that map is iterating over and **must have a return in order for `.map` to return a changed array**. 
 
 #### Filter
 
 [.filter(*callback*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
-> function (currentValue, index, array)
-> this function also acts upon each item that filter is iterating over **returning a boolean expression**, which determine whether or not the item will be included in the array returned by `.filter`. 
+`function (currentValue, index, array)`
+> this function also acts upon each item that filter is iterating over and **returns a truthy or falsey value** that determines whether or not the item will be included in the array returned by `.filter`. 
 
 #### Sort
 
 [.sort(*callback*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 
-> function (a, b) //comparison function which compares a & b
+`function (a, b) //comparison function which compares a & b`
 
 ```js
 const numbers = [11, 42, 39, 14, 25]
@@ -104,17 +106,21 @@ function compare (a, b) {
 
 [.reduce(*callback*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
-> function (accumulator, currentValue, index, array)
+`function (accumulator, currentValue, index, array)`
 
 ```js
 const numbers = [11, 42, 39, 14, 25]
 
 numbers.reduce((total, current) => total + current)
-//we're not providing an accumulator here, so reduce will take the first item from the array and use that as the starting value of the accumulator
-//as a consequence, currentValue will be the item at index 1 in the array that .reduce() is being called on
+// we're not providing an accumulator here, so reduce will take the first item 
+// from the array reduce is called on, and use that value at the 0th index
+// as the starting value of the accumulator
+// as a consequence, currentValue will be the item at index 1 in the array
+// that .reduce() is being called on
 ```
 
 ```js
+// same as above but with a named function
 function add (firstNum, secondNum) {
   return firstNum + secondNum
 }
@@ -124,8 +130,12 @@ const numbers = [11, 42, 39, 14, 25]
 const sum = numbers.reduce(add)
 ```
 
+##### Object Histogram
+
+Here, an object `{}` will function as our accumulator. It's going to help us count the number of times each name occurs in the array. Each key in the object will be the name in array, and the corresponding value will be how many times that names occurs.
 
 ```js
+//from MDN
 var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
 
 var countedNames = names.reduce(function (allNames, name) { 
