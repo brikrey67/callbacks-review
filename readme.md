@@ -3,14 +3,13 @@
 ## Lesson Objectives
 
   - Define and use a callback function
-  - Execute a delayed JavaScript function using callbacks and timing functions
+  - Execute a delayed JavaScript function using callbacks to timing functions
   - Handle an event with a callback function
-  - Understand callback function signatures used with Array method higher-order functions
+  - Identify callback function signatures used with various Array method higher-order functions
 
 ## Callbacks
 
-  - What are callbacks?
-  - Why does function signature matter?
+A callback function is a *function reference* passed as an argument to another function. 
 
 ```js
 function callFunctionPassedIn (fnPassedIn) {
