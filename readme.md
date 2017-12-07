@@ -3,9 +3,9 @@
 ## Lesson Objectives
 
   - Define and use a callback function
-  - Use a callbacks with JavaScript timing functions
-  - Use a callback to handle an event
-  - Use a callback to an array method
+  - Execute a delayed JavaScript function using callbacks and timing functions
+  - Handle an event with a callback function
+  - Understand callback function signatures used with Array method higher-order functions
 
 ## Callbacks
 
