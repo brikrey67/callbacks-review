@@ -20,6 +20,8 @@ function callFunctionPassedIn (fnPassedIn) {
 
 ## Event Listeners
 
+### Document Ready
+
 ```js
 $(document).ready(function(){
   //code
@@ -32,6 +34,14 @@ $(document).ready(initDoc)
 function initDoc () {
   
 }
+```
+
+### Click
+
+```js
+$(document).click(function(event){
+  console.log('the document was clicked', event.timeStamp, 'milliseconds since page load')
+})
 ```
 
 ### We Do: $ jQuery Hijink$ 
